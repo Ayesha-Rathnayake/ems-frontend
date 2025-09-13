@@ -1,1 +1,45 @@
-<p>employee-details works!</p>
+<div class="container">
+<h2>Employee Details</h2>
+
+
+<ng-template #loadingTemplate>
+<p>Loading employee details...</p>
+</ng-template>
+
+<div *ngIf="employee; else loadingTemplate">
+<p><strong>ID:</strong>{{employee.id}}</p>
+<p><strong>First Name:</strong>{{employee.firstName}}</p>
+<p><strong>Last Name :</strong>{{employee.lastName}}</p>
+<p><strong>Email :</strong>{{employee.email}}</p>
+
+<hr/>
+<h2>Edit Employee</h2>
+<form (ngSubmit)="updateEmployee()" #editForm="ngForm">
+  <div>
+    <label>First Name</label>
+    <input type="text" [(ngModel)]="employee.firstName" name="firstName" required />
+  </div>
+  <div>
+    <label>Last Name</label>
+    <input type="text" [(ngModel)]="employee.lastName" name="lastName" required />
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="email" [(ngModel)]="employee.email" name="email" required />
+</div>
+
+
+
+
+<button routerLink="/employees">Back to List</button>
+
+
+
+
+  <button type="submit" [disabled]="!editForm.valid">Update</button>
+</form>
+
+
+
+
+</div>

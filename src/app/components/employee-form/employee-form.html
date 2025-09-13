@@ -1,1 +1,42 @@
-<p>employee-form works!</p>
+<div class ="container">
+    <h2>{{isEdit ? 'Edit Employees' :'Add Employees'}}</h2>
+
+    <form (ngSubmit)="onsubmit()" #empForm="ngForm">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input 
+            type="text"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="employee.firstName"
+            required 
+            />
+        </div>
+
+        <div>
+            <label for="lastName">Last Name :</label>
+            <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            [(ngModel)]="employee.lastName"
+            required
+            />
+        </div>
+
+        <div>
+            <label for="email">Email :</label>
+            <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="employee.email"
+            required
+            />
+        </div>
+
+    <button type="submit" [disabled]="empForm.invalid">{{ isEdit ? 'Update' : 'Save' }}</button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+
+    </form>
+</div>

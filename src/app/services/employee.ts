@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class Employee {
-  
+// services/employee.ts
+export interface Employee {
+  id?: number;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
